@@ -8,7 +8,7 @@ faviconLarge: /img/favicon-32x32.jpg
 facebook: https://www.facebook.com/toolgears
 youtube: https://www.youtube.com/toolgears
 twitter: https://www.twitter.com/toolgears
-number: "+923001234567"
+number: +
 dmca: true
 dmcaLink: https://www.google.com
 colors:
