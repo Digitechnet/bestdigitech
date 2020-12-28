@@ -1,6 +1,6 @@
 ---
 templateKey: site-data
-title: Tools & Gears
+title: ToolGears
 logoSmall: /img/logo.png
 logoLarge: /img/logo-large.png
 faviconSmall: /img/favicon-16x16.jpg
