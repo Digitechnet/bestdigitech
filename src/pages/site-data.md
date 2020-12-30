@@ -32,9 +32,9 @@ topNav:
       - title: Chainsaws
         link: "#"
         child:
-          - title: Gas Chainsaws
+          - title: Gas Powered
             link: /best-gas-chainsaws/
-          - title: Electric Chainsaws
+          - title: Electric
             link: /best-electric-chainsaws/
           - title: Pocket Chainsaw
             link: /best-pocket-chainsaws/
