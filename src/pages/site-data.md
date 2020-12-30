@@ -23,27 +23,25 @@ colors:
 topNav:
   - title: Learning Guides
     link: /learning-guides/
+    child:
+      - title: Types Of Chainsaws
+        link: /types-of-chainsaws/
   - title: Buying Guides
     link: /buying-guides/
     child:
-      - title: Miscellaneous
+      - title: Chainsaws
         link: "#"
         child:
-          - title: Test Post
-            link: /sample-post-buying/
-          - title: Test Post
-            link: /sample-post-buying/
-      - title: Peripherals
-        link: "#"
-        child:
-          - title: Test Post
-            link: /sample-post-buying/
-          - title: Test Post
-            link: /sample-post-buying/
-  - title: News
-    link: /news/
-  - title: Reviews
-    link: /reviews/
+          - title: Gas Chainsaws
+            link: /best-gas-chainsaws/
+          - title: Electric Chainsaws
+            link: /best-electric-chainsaws/
+          - title: Pocket Chainsaw
+            link: /best-pocket-chainsaws/
+          - title: Battery Powered
+            link: /best-battery-powered-chainsaws/
+          - title: Chainsaw Sharpeners
+            link: /best-chainsaw-sharpeners/
 footerNav:
   - title: About Us
     link: /about-us/
