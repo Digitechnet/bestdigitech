@@ -1,5 +1,5 @@
 const path = require("path");
-const siteURL = "https://www.toolgears.com";
+const siteURL = "https://toolgears.com";
 const disqus = "toolgears-com";
 
 module.exports = {
