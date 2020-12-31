@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: disqus,
+        shortname: tool-gears,
       },
     },
     "gatsby-plugin-sharp",
