@@ -110,7 +110,7 @@ module.exports = {
       options: {
         content: [path.join(process.cwd(), "src/**/!(*.d).{js,mdx,md}")],
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ["/main.css"], // applies purging only on the bulma css file
+        purgeOnly: ["css/"], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
     // make sure to keep it last in the array

@@ -341,6 +341,7 @@ export const pageQuery = graphql`
         }
         products {
           name
+          seoName
           link
           image {
             name

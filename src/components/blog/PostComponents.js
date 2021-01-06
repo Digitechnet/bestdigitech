@@ -186,7 +186,11 @@ export const ProductsTable = ({ products, title }) => {
       <tbody className="row-hover">
         {products?.map((item, index) => (
           <tr key={index}>
-            {title && <td className="tb-column">{item.seoName}</td>}
+            {title && (
+              <td className="tb-column">
+                <strong>{item.seoName}</strong>
+              </td>
+            )}
             <td className="tb-column">
               <div className="item-detail">
                 <div>
