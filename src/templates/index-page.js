@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import HeadData from "../components/HeadData.js";
 import Calendar from "../svg-icons/calendar.js";
 import SiteMetaData from "../components/SiteMetadata.js";
-import { FindCategory, FillSpace } from "../components/SimpleFunctions.js";
+import { FindCategory, FillSpace, LinkFix } from "../components/SimpleFunctions.js";
 
 const IndexTemplate = ({ data }) => {
   const singlePost = data.FP.nodes[0];
@@ -13,7 +13,7 @@ const IndexTemplate = ({ data }) => {
   const allPosts = data.posts.nodes;
   const sections = data.allMarkdownRemark.categories
     .map((category) => {
-      const posts = allPosts.filter((post) => post.frontmatter.category === category.frontmatter.id).slice(0, 6);
+      const posts = allPosts.filter((post) => post.frontmatter.category === category.frontmatter.id).slice(0, 5);
       return { title: category.frontmatter.title, posts };
     })
     .filter((category) => category.posts.length);
@@ -87,7 +87,7 @@ const IndexTemplate = ({ data }) => {
                       <div className="category-links">
                         {item.links.map((item, index) => (
                           <div className="category-link" key={index}>
-                            <Link to={item.link.includes("/") ? item.link : `/${item.link}/`}>{item.title}</Link>
+                            <Link to={LinkFix(item)}>{item.title}</Link>
                           </div>
                         ))}
                       </div>

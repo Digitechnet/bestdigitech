@@ -35,6 +35,8 @@ export const CreateID = (name) =>
     .split(" ")
     .join("_");
 
+export const LinkFix = (item) => (item.link.includes("/") ? item.link : `/${item.link}/`);
+
 const FindItems = () => {
   const { authors, categories } = useStaticQuery(graphql`
     query Authors {

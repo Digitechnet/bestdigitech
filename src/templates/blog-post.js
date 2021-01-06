@@ -20,14 +20,21 @@ import Search from "../components/SearchForm";
 import { FindCategory, CreateID } from "../components/SimpleFunctions.js";
 
 export const BlogPostTemplate = (props) => {
+  const {
+    frontmatter: { beforebody, afterbody, title, date, featuredimage, sidebar, faq, author, rating, products, table, tableofcontent },
+    helmet,
+    rcount,
+    rvalue,
+    link,
+    tocdata,
+    body,
+  } = props;
   const { title: siteName } = SiteMetaData();
-  const { content, title, helmet, date, image, sidebar, faq, author, rating, rcount, rvalue } = props;
-  const { tableofcontent, link, tocdata, beforeBody, afterBody, products, table } = props;
   const [btT, setBtT] = useState("");
   const contentRef = useRef(null);
   const [topOffset, setTopOffset] = useState(900000000);
-  const { base: img, name: imgName } = image;
-  const { width, height } = image.childImageSharp.original;
+  const { base: img, name: imgName } = featuredimage;
+  const { width, height } = featuredimage.childImageSharp.original;
   const disqusConfig = {
     url: link,
   };
@@ -95,17 +102,17 @@ export const BlogPostTemplate = (props) => {
                 <h1 className="title">{title}</h1>
                 <BlogInfo date={date} disqusConfig={disqusConfig} title={title} image={img} />
                 <MDXProvider components={PostComps}>
-                  <MDXRenderer>{beforeBody}</MDXRenderer>
+                  <MDXRenderer>{beforebody}</MDXRenderer>
                 </MDXProvider>
               </div>
             </div>
             {tableofcontent && <PostComps.TableOfContents data={tocdata} />}
             {table?.table && table?.title && !!products?.length && <PostComps.PTitle title={table?.title} cName="is-bold is-center" />}
-            {table?.table && !!products?.length && <PostComps.ProductsTable products={products} title={table?.seoTitle} />}
+            {table?.table && !!products?.length && <PostComps.ProductsTable products={products} productColumns={table.productColumns} title={table?.seoTitle} />}
             <div ref={contentRef} className="post-content">
               <div className="post-text">
                 <MDXProvider components={PostComps}>
-                  <MDXRenderer>{content}</MDXRenderer>
+                  <MDXRenderer>{body}</MDXRenderer>
                 </MDXProvider>
               </div>
               {products?.map((item, index) => (
@@ -123,7 +130,7 @@ export const BlogPostTemplate = (props) => {
             </div>
             <div className="blog-section-bottom">
               <MDXProvider components={PostComps}>
-                <MDXRenderer>{afterBody}</MDXRenderer>
+                <MDXRenderer>{afterbody}</MDXRenderer>
               </MDXProvider>
             </div>
             {faq && (
@@ -160,19 +167,6 @@ export const BlogPostTemplate = (props) => {
       </div>
     </section>
   );
-};
-
-BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
-  date: PropTypes.string,
-  image: PropTypes.object,
-  sidebar: PropTypes.object,
-  faq: PropTypes.array,
-  author: PropTypes.string,
-  enabletoc: PropTypes.bool,
-  category: PropTypes.string,
 };
 
 const BlogPost = (props) => {
@@ -243,31 +237,30 @@ const BlogPost = (props) => {
     ]
   }`;
 
-  const productSchema = `{
+  const productSchema =
+    frontmatter.products &&
+    !!frontmatter.products.length &&
+    `{
     "@context": "http://schema.org",
     "@type": "ItemList",
     "url": "${path}",
     "name": "${frontmatter.title}",
     "itemListElement": [
-      ${
-        frontmatter.products &&
-        frontmatter.products.map(
-          (item, index) => `{
+      ${frontmatter.products.map(
+        (item, index) => `{
         "@type":"ListItem",
         "position":${index + 1},
         "url":"${path}#${CreateID(item.name)}",
         "@id":"#${CreateID(item.name)}",
         "name":"${item.name}"
       }`
-        )
-      }
+      )}
     ]
   }`;
 
   return (
     <Layout type="post" title={frontmatter.title} titleParent={categoryName} link={`${categoryLink}/`}>
       <BlogPostTemplate
-        content={post.body}
         helmet={
           <HeadData title={`${frontmatter.seoTitle} - ${siteName}`} description={frontmatter.seoDescription} image={img}>
             <script type="application/ld+json">{articleSchema}</script>
@@ -276,22 +269,12 @@ const BlogPost = (props) => {
             {frontmatter.faq && <script type="application/ld+json">{faqSchema}</script>}
           </HeadData>
         }
-        title={frontmatter.title}
-        date={frontmatter.date}
-        image={frontmatter.featuredimage}
-        sidebar={frontmatter.sidebar}
-        faq={frontmatter.faq}
-        author={frontmatter.author}
+        body={post.body}
+        frontmatter={frontmatter}
         rvalue={frontmatter.rvalue ? frontmatter.rvalue : 5}
         rcount={frontmatter.rcount || 0}
-        rating={frontmatter.rating}
-        tableofcontent={frontmatter.tableofcontent}
         link={path}
         tocdata={props.pageContext.toc}
-        beforeBody={frontmatter.beforebody}
-        afterBody={frontmatter.afterbody}
-        products={frontmatter.products}
-        table={frontmatter.table}
       />
     </Layout>
   );
@@ -338,9 +321,11 @@ export const pageQuery = graphql`
           table
           title
           seoTitle
+          productColumns
         }
         products {
           name
+          seoName
           link
           image {
             name

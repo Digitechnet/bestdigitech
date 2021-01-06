@@ -126,7 +126,7 @@
   text-align: center;
   padding: 7px 0;
   background-color: var(--custom-color-3);
-  color: #fff;
+  color: var(--custom-color-8);
   font-weight: 700;
   font-size: 26px;
 }

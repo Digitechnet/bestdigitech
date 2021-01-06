@@ -204,15 +204,18 @@ exports.createPages = ({ actions, graphql }) => {
       posts.forEach((post) => {
         const id = post.id;
         const slug = post.fields.slug;
-
-        const match = `./static/img/${post.frontmatter.featuredimage.base}`;
-        createImages(match, "category", { width: 348 });
-        createImages(match, "front-first", { width: 675 });
-        createImages(match, "front-right", { width: 195 });
-        createImages(match, "latest", { width: 385 });
-        createImages(match, "post-first", { width: 868 });
-        createImages(match, "post-first", { width: 450 }, true);
-        createImages(match, "post-latest", { width: 230 });
+        try {
+          const match = `./static/img/${post.frontmatter.featuredimage.base}`;
+          createImages(match, "category", { width: 348 });
+          createImages(match, "front-first", { width: 675 });
+          createImages(match, "front-right", { width: 195 });
+          createImages(match, "latest", { width: 385 });
+          createImages(match, "post-first", { width: 868 });
+          createImages(match, "post-first", { width: 450 }, true);
+          createImages(match, "post-latest", { width: 230 });
+        } catch (e) {
+          throw `Featured Image not found for post ${slug}`;
+        }
 
         const sidebar = post.frontmatter.sidebar;
         if (sidebar !== null && sidebar.image !== null) {
@@ -318,33 +321,34 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     frontmatter: MdxFrontmatter
   }
 
-  type MdxFrontmatter {
+  type MdxFrontmatter @infer {
+    featuredimage: File @fileByRelativePath
     beforebody: String @mdx
     afterbody: String @mdx
     products: [Product]
     sidebar: Sidebar
     faq: [Faq]
     table: ProductTable
-      title: String
+    title: String
     btnText: String
   }
 
-  type Product {
+  type Product @infer {
     name: String
     seoName: String
     btnText: String
     body: String @mdx
-    image: File
+    image: File @fileByRelativePath
     link: String
     pros: [String]
     cons: [String]
     specs: [Spec]
   }
 
-  type Sidebar {
+  type Sidebar @infer {
     stoc: [SidebarToC]
     stitle: String
-    image: File
+    image: File @fileByRelativePath
     alink: String
     atext: String
   }
@@ -368,13 +372,14 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     table: Boolean
     title: String
     seoTitle: String
+    productColumns: [String]
   }
 
   type MarkdownRemark implements Node {
     frontmatter: MarkdownFrontmatter
   }
 
-  type MarkdownFrontmatter {
+  type MarkdownFrontmatter @infer {
     templateKey: String
     id: String
     categories: [HomeCategory]
@@ -383,13 +388,24 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     seoTitle: String
     seoDescription: String
     schema: String
+    cookies: Cookies
     topNav: [Nav]
+    colors: Colors
     footerNav: [CategoryLink]
+    logoSmall: File! @fileByRelativePath
+    logoLarge: File! @fileByRelativePath
+    faviconSmall: File! @fileByRelativePath
+    faviconLarge: File! @fileByRelativePath
   }
 
   type HomeCategory {
     title: String
     links: [CategoryLink]
+  }
+
+  type Cookies {
+    enabled: Boolean
+    message: String
   }
 
   type CategoryLink {
@@ -402,5 +418,21 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     link: String
     child: [Nav]
   }
+
+  type Colors @infer {
+    headerTextColor: String
+  }
 `);
+};
+
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    });
+  }
 };
