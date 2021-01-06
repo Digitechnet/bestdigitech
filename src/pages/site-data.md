@@ -1,14 +1,14 @@
 ---
 templateKey: site-data
-title: Tools & Gears
+title: ToolGears
 logoSmall: /img/logo.png
-logoLarge: /img/logo-large.png
-faviconSmall: /img/favicon-16x16.jpg
-faviconLarge: /img/favicon-32x32.jpg
+logoLarge: /img/logo.png
+faviconSmall: /img/favicon-16x16.png
+faviconLarge: /img/favicon-32x32.png
 facebook: https://www.facebook.com/toolgears
 youtube: https://www.youtube.com/toolgears
 twitter: https://www.twitter.com/toolgears
-number: "+923001234567"
+number: +
 dmca: true
 dmcaLink: https://www.google.com
 colors:
@@ -18,32 +18,30 @@ colors:
   textColor: "#000"
   btnBackground: "#4f3c8b"
   btnHoverBackground: "#6c51bf"
-  btnColor: "#000"
+  btnColor: "#fff"
   navbarShadow: "#828282"
 topNav:
   - title: Learning Guides
     link: /learning-guides/
+    child:
+      - title: Types Of Chainsaws
+        link: /types-of-chainsaws/
   - title: Buying Guides
     link: /buying-guides/
     child:
-      - title: Miscellaneous
+      - title: Chainsaws
         link: "#"
         child:
-          - title: Test Post
-            link: /sample-post-buying/
-          - title: Test Post
-            link: /sample-post-buying/
-      - title: Peripherals
-        link: "#"
-        child:
-          - title: Test Post
-            link: /sample-post-buying/
-          - title: Test Post
-            link: /sample-post-buying/
-  - title: News
-    link: /news/
-  - title: Reviews
-    link: /reviews/
+          - title: Gas Powered
+            link: /best-gas-chainsaws/
+          - title: Electric
+            link: /best-electric-chainsaws/
+          - title: Pocket Chainsaw
+            link: /best-pocket-chainsaws/
+          - title: Battery Powered
+            link: /best-battery-powered-chainsaws/
+          - title: Chainsaw Sharpeners
+            link: /best-chainsaw-sharpeners/
 footerNav:
   - title: About Us
     link: /about-us/

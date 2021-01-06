@@ -2,7 +2,7 @@
 id: 76f262e1-9325-48ec-beee-f472d201176a
 templateKey: author-page
 title: Erik Bolinder
-slug: Erik-Bolinder
+slug: erik-bolinder
 image: /img/author-erik-bolinder.webp
 description: "Hi, I'm Erik. A Tool enthusiast. Loves to do gardening. I used my
   first ever chainsaw when i was 8 years old. I loved my first tool so much that

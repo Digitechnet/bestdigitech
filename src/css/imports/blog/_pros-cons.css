@@ -21,7 +21,7 @@
   padding: 0.5em 1em;
   font-weight: 600;
   font-size: 1.1em;
-  color: var(--custom-color-4);
+  color: #fff;
 }
 .su-box-content {
   padding: 1em;
@@ -35,8 +35,8 @@
   padding: 4px 0 4px 1.5em;
   list-style-type: none;
   line-height: 1.3em;
-  font-size: 14pt;
-  font-family: arial, helvetica, sans-serif;
+  font-size: 12pt;
+  font-family: 'Poppins';
 }
 .su-list ul li svg {
   position: absolute;
