@@ -25,6 +25,10 @@ const SiteData = () => {
           number
           dmca
           dmcaLink
+          cookies {
+            enabled
+            message
+          }
           colors {
             background
             blockBackground
@@ -34,6 +38,7 @@ const SiteData = () => {
             btnHoverBackground
             btnColor
             navbarShadow
+            headerTextColor
           }
           logoSmall {
             base

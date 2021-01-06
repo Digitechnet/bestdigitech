@@ -173,13 +173,18 @@ export const TableOfContents = ({ data }) => {
   );
 };
 
-export const ProductsTable = ({ products, title }) => {
+export const ProductsTable = ({ products, title, productColumns }) => {
   return (
     <table className="tablepress table_s1">
       <thead>
         <tr className="row-1 odd">
           {title && <th className="tb-column">{title}</th>}
           <th className="tb-column">Model</th>
+          {productColumns?.map((item, index) => (
+            <th key={index} className="tb-column">
+              {item}
+            </th>
+          ))}
           <th className="tb-column">&nbsp;</th>
         </tr>
       </thead>
@@ -199,6 +204,9 @@ export const ProductsTable = ({ products, title }) => {
                 <a href={`#${CreateID(item.name)}`}>{item.name}</a>
               </div>
             </td>
+            {productColumns?.map((column) => (
+              <td className="tb-column">{item.specs.find((spec) => spec.name === column)?.value}</td>
+            ))}
             <td className="tb-column">
               <a href={item.link} className="su-button" target="_blank" rel="nofollow noreferrer">
                 <span> Check Price</span>
@@ -208,6 +216,19 @@ export const ProductsTable = ({ products, title }) => {
         ))}
       </tbody>
     </table>
+  );
+};
+
+export const FeaturesBox = ({ title, features }) => {
+  return (
+    <div className="features_box">
+      <h3>{title}</h3>
+      <ul>
+        {features.map((item, index) => (
+          <li key={index} dangerouslySetInnerHTML={{ __html: item }}></li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

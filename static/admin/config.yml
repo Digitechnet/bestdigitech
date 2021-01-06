@@ -9,6 +9,7 @@ backend:
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
 local_backend: true
+publish_mode: editorial_workflow
 
 media_folder: static/img
 public_folder: /img
@@ -16,6 +17,8 @@ public_folder: /img
 collections:
   - name: "site-data"
     label: "Site Information"
+    editor:
+      preview: false
     files:
       - name: "site"
         label: "Site Information"
@@ -38,6 +41,25 @@ collections:
           - { label: "Number", name: "number", widget: "string" }
           - { label: "DMCA Enable", name: "dmca", widget: "boolean" }
           - { label: "DMCA Link", name: "dmcaLink", widget: "string" }
+          - {
+              label: "Cookies Consent",
+              name: "cookies",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Enable Cookies Consent",
+                    name: "enabled",
+                    widget: "boolean",
+                  },
+                  {
+                    label: "Cookies Consent Message",
+                    name: "message",
+                    widget: "string",
+                    required: true,
+                  },
+                ],
+            }
           - {
               label: "Site Color Schemes",
               name: "colors",
@@ -78,6 +100,11 @@ collections:
                   {
                     label: "Navbar Shadow Color",
                     name: navbarShadow,
+                    widget: "string",
+                  },
+                  {
+                    label: "Header Text Color",
+                    name: headerTextColor,
                     widget: "string",
                   },
                 ],
@@ -129,6 +156,8 @@ collections:
 
   - name: "index-page"
     label: "Index Page"
+    editor:
+      preview: false
     files:
       - name: "index"
         label: "Index Page"
@@ -216,18 +245,18 @@ collections:
           name: author,
           widget: relation,
           collection: authors,
-          valueField: id,
-          searchFields: ["id"],
-          displayFields: ["title"],
+          value_field: id,
+          search_fields: ["id"],
+          display_fields: ["title"],
         }
       - {
           label: "Category",
           name: category,
           widget: relation,
           collection: categories,
-          valueField: id,
-          searchFields: ["id"],
-          displayFields: ["title"],
+          value_field: id,
+          search_fields: ["id"],
+          display_fields: ["title"],
         }
       - {
           label: "Enable Rating",
@@ -271,6 +300,17 @@ collections:
                 label: "Products Table Seo Title",
                 name: "seoTitle",
                 widget: "string",
+                required: false,
+              },
+              {
+                label: "Extra Table Columns of Products",
+                name: "productColumns",
+                widget: relation,
+                collection: blog,
+                value_field: products.*.specs.*.name,
+                search_fields: ["products.*.specs.*.name"],
+                display_fields: ["products.*.specs.*.name"],
+                multiple: true,
                 required: false,
               },
             ],
@@ -410,6 +450,8 @@ collections:
 
   - name: pages
     label: Pages
+    editor:
+      preview: false
     folder: "src/pages"
     create: true
     slug: "{{slug}}"
@@ -447,6 +489,8 @@ collections:
 
   - name: categories
     label: Categories
+    editor:
+      preview: false
     folder: "src/pages"
     create: true
     slug: "{{slug}}"
@@ -479,6 +523,8 @@ collections:
 
   - name: authors
     label: Authors
+    editor:
+      preview: false
     folder: "src/pages"
     create: true
     slug: "{{slug}}"

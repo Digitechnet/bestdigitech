@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import SocialIcons from "./SocialIcons.js";
 import SiteMetaData from "./SiteMetadata";
+import { LinkFix } from "./SimpleFunctions";
 
 const Footer = () => {
   const [footerBarActiveClass, setFooterBarActiveClass] = useState("");
@@ -28,16 +29,19 @@ const Footer = () => {
         </div>
         {/* Hamburger menu */}
         <div className="footernav has-text-centered">
+          {/* eslint-disable */}
           <div className={`footer-burger burger ${footerBarActiveClass}`} data-target="footerMenu" onClick={() => toggleFooterHamburger()}>
             <span />
             <span />
             <span />
           </div>
+
+          {/* eslint-enable */}
           <div id="footerMenu" className={`footer-menu ${footerBarActiveClass}`}>
             <div className="footerbar">
               {footerNav.map((item, index) => {
                 return (
-                  <Link className="footerbar-item" to={item.link.includes("/") ? item.link : `/${item.link}/`} key={index}>
+                  <Link className="footerbar-item" to={LinkFix(item)} key={index}>
                     {item.title}
                   </Link>
                 );
