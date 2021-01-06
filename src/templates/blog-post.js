@@ -21,7 +21,8 @@ import { FindCategory, CreateID } from "../components/SimpleFunctions.js";
 
 export const BlogPostTemplate = (props) => {
   const {
-    frontmatter: { beforebody, afterbody, title, helmet, date, featuredimage, sidebar, faq, author, rating, products, table, tableofcontent },
+    frontmatter: { beforebody, afterbody, title, date, featuredimage, sidebar, faq, author, rating, products, table, tableofcontent },
+    helmet,
     rcount,
     rvalue,
     link,
