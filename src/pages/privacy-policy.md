@@ -1,9 +1,9 @@
 ---
 templateKey: default-page
 title: Privacy Policy
-seoTitle: Privacy Policy
-seoDescription: This is the Privacy Policy Page Of Gaming Techies. Learn how we
-  maintain the privacy of our users. We take full responsibility for our
+seoTitle: Privacy Policy - Gaming Techies
+seoDescription: This is the privacy policy page of Gaming Techies. learn how we
+  maintain the privacy of our users. we take full responsibility for our
   visitors and try not to...
 schema: ""
 ---
