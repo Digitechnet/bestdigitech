@@ -1,12 +1,12 @@
 ---
 templateKey: site-data
-title: ToolGears
+title: Gaming Techies
 logoSmall: /img/logo.png
 logoLarge: /img/logo.png
 faviconSmall: /img/favicon-16x16.png
 faviconLarge: /img/favicon-32x32.png
-facebook: https://www.facebook.com/toolgears
-youtube: https://www.youtube.com/toolgears
+facebook: https://www.facebook.com/gamingtechiesofficial
+youtube: https://www.youtube.com/channel/UCV1YUero4LNDkktpq6ScEjw
 twitter: https://www.twitter.com/toolgears
 number: +
 dmca: true
@@ -28,25 +28,10 @@ colors:
 topNav:
   - title: Learning Guides
     link: /learning-guides/
-    child:
-      - title: Types Of Chainsaws
-        link: /types-of-chainsaws/
+    child: []
   - title: Buying Guides
     link: /buying-guides/
-    child:
-      - title: Chainsaws
-        link: "#"
-        child:
-          - title: Gas Powered
-            link: /best-gas-chainsaws/
-          - title: Electric
-            link: /best-electric-chainsaws/
-          - title: Pocket Chainsaw
-            link: /best-pocket-chainsaws/
-          - title: Battery Powered
-            link: /best-battery-powered-chainsaws/
-          - title: Chainsaw Sharpeners
-            link: /best-chainsaw-sharpeners/
+    child: []
 footerNav:
   - title: About Us
     link: /about-us/
