@@ -1,9 +1,9 @@
 ---
 templateKey: default-page
 title: Terms of Service
-seoTitle: Terms of Service
-seoDescription: By accessing this Website, you are agreeing to be bound by these
-  Website Terms and Conditions of Use and agree that you are responsible for
+seoTitle: Terms of Service - Gaming Techies
+seoDescription: By accessing this website, you are agreeing to be bound by these
+  website terms and conditions of use and agree that you are responsible for
   applicable laws.
 schema: ""
 ---
