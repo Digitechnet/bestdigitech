@@ -19,7 +19,7 @@ description: "Gaming is all about combining the experience with the right techs.
   experiences. These things will keep you away from any type of future regrets
   and will make you choose the item that will perfectly be compatible with your
   gaming needs. "
-seoTitle: Buying Guides With Top 10 Lists & Reviews - Gaming Techies
+seoTitle: Buying Guides with Top 10 Lists & Reviews - Gaming Techies
 seoDescription: Here in this category, we write detailed reviews on products
   related to gaming, and We try our best to keep it easy and satisfy visitors
   with our content.
