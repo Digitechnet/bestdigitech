@@ -2,25 +2,18 @@
 templateKey: default-page
 title: About Us
 seoTitle: About Us
-seoDescription: I started Tool Gears to provide the real and unbisaed review of
-  products. We rank products from 1 to 10 based on different factors.
-schema: "{\"@context\":\"https://schema.org\",\"@type\":\"AboutPage\",\"mainEnt\
-  ityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://www.toolgears.com/about-\
-  us/\"},\"url\":\"https://www.toolgears.com/about-us/\",\"headline\":\"About
-  Us\",\"description\":\"I was searching for reviews about tech products I found
-  that most of the websites weren't providing useful thats when I got the idea
-  of Tools &
-  Gears.\",\"image\":{\"@type\":\"ImageObject\",\"@id\":\"https://www.toolgears\
-  .com/about-us/#primaryimage\",\"url\":\"https://www.toolgears.com/img/Best-Ga\
-  ming-PC-Build.jpg\",\"width\":\"1836\",\"height\":\"1948\"},\"publisher\":{\"\
-  @type\":\"Organization\",\"name\":\"Tools &
-  Gears\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://www.toolgears.c\
-  om/img/logo-large.jpg\",\"width\":\"800\",\"height\":\"258\"}}},"
+seoDescription: Gaming Techies is all about finding the best gaming products and
+  their reviews. we list top 10 products in a form of a table with a deep review
+  with pros and cons.
+schema: '{"@context":"https://schema.org","@type":"AboutPage","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.gamingtechies.com/about-us/"},"url":"https://gamingtechies.com/about-us/","headline":"About
+  Us","description":"Gaming Techies is all about Finding the best products and
+  their reviews. We list Top 10 products in a form of a table with a deep Review
+  with Pros and
+  Cons.","image":{"@type":"ImageObject","@id":"https://www.gamingtechies.com/about-us/#primaryimage","url":"https://www.gamingtechies.com/img/Best-Gaming-PC-Build.jpg","width":"1836","height":"1948"},"publisher":{"@type":"Organization","name":"Gaming
+  Techies","logo":{"@type":"ImageObject","url":"https://www.gamingtechies.com/img/logo.png","width":"800","height":"258"}}},'
 ---
-It was about 2014 when i was searching for some chainsaws and screw drivers on Google. Turned out, I bought a useless one which had no worth. I got scammed because of that website. At that time 90% websites were posting a sponsored review about useless products. 
+Gaming techies is an online website that covers all the topics relevant to the gaming world. This website provides you all the information, reviews, and news about the world's most leading gaming techs that you can use to upgrade your gameplay. Not every tech is worthy of purchase, and not every tech is worth considering trash. All you need to have is a complete knowledge about the gaming world to avoid making any regretful decision regarding any purchase.
 
-I had only one thought at that time, To start my own Web Page to list Best Tools and Gears and publish Unbiased Reviews.
+To help you out in this, gaming techies have worked really hard to compile all the useful information. Based on the personal reviews of all the authentic buyers, the list of articles that is purely authentic will surely help you a lot. After going through each review and other articles, you will not feel any trouble making the choice of buying the best compatible gaming tech around the globe.
 
-The main purpose of **ToolGear**.com is to lookout for products and review them deeply without any biasedness and to rank them from 1 to 10 keeping in mind different factors.
-
-Do share us with your Family and Friends.
+While we are here with the most amazing tips for you to handle all your gaming worries, we need your trust and support that can add much to our confidence to help you reach out to the best ever things in the world.
