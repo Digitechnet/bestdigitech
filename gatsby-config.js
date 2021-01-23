@@ -1,6 +1,6 @@
 const path = require("path");
-const siteURL = "https://toolgears.com";
-const disqus = "tool-gears";
+const siteURL = "https://gamingtechies.com";
+const disqus = "gaming-techies";
 
 module.exports = {
   siteMetadata: {
@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: disqus,
+        shortname: `gaming-techies`,
       },
     },
     "gatsby-plugin-sharp",
