@@ -32,6 +32,8 @@ topNav:
   - title: Buying Guides
     link: /buying-guides/
     child: []
+  - title: News
+    link: /news/
 footerNav:
   - title: About Us
     link: /about-us/
