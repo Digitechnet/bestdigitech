@@ -1,7 +1,7 @@
 ---
 templateKey: default-page
 title: Affiliate Disclosure
-seoTitle: Affiliate Disclosure
+seoTitle: Affiliate Disclosure - Gaming Techies
 seoDescription: Amazon and/or other companies pay Gaming Techies a small
   commission or other compensation for helping to bring customers to their
   website.

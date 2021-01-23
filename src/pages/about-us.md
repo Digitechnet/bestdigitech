@@ -1,7 +1,7 @@
 ---
 templateKey: default-page
 title: About Us
-seoTitle: About Us
+seoTitle: About Us - Gaming Techies
 seoDescription: Gaming Techies is all about finding the best gaming products and
   their reviews. we list top 10 products in a form of a table with a deep review
   with pros and cons.
