@@ -10,7 +10,7 @@ youtube: https://www.youtube.com/channel/UCV1YUero4LNDkktpq6ScEjw
 twitter: https://www.twitter.com/toolgears
 number: +
 dmca: true
-dmcaLink: https://www.google.com
+dmcaLink: https://www.dmca.com/Protection/Status.aspx?ID=6d9af720-078e-4fca-8e1d-824a52124ec5&refurl=https://www.gamingtechies.com/&PAGE_ID=aHR0cHM6Ly93d3cuZ2FtaW5ndGVjaGllcy5jb20v0
 cookies:
   enabled: true
   message: To ensure the best experience on our website, we recommend that you
