@@ -5,9 +5,9 @@ logoSmall: /img/website-logo.png
 logoLarge: /img/website-logo.png
 faviconSmall: /img/fav-icon-16x16.png
 faviconLarge: /img/fav-icon-32x32.png
-facebook: https://www.facebook.com/gamingtechiesofficial
-youtube: https://www.youtube.com/channel/UCV1YUero4LNDkktpq6ScEjw
-twitter: https://www.twitter.com/toolgears
+facebook: https://www.facebook.com/
+youtube: https://www.youtube.com/
+twitter: https://www.twitter.com/
 number: +
 dmca: true
 dmcaLink: https://www.dmca.com/Protection/Status.aspx?ID=6d9af720-078e-4fca-8e1d-824a52124ec5&refurl=https://www.gamingtechies.com/&PAGE_ID=aHR0cHM6Ly93d3cuZ2FtaW5ndGVjaGllcy5jb20v0
@@ -26,14 +26,12 @@ colors:
   blockBackground: "#fff"
   headerBackground: "#4f3c8b"
 topNav:
-  - title: Learning Guides
-    link: /learning-guides/
-    child: []
   - title: Buying Guides
     link: /buying-guides/
     child: []
-  - title: News
-    link: /news/
+  - title: Learning Guides
+    link: /learning-guides/
+    child: []
 footerNav:
   - title: About Us
     link: /about-us/
