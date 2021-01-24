@@ -1,10 +1,10 @@
 ---
 templateKey: site-data
-title: Gaming Techies
-logoSmall: /img/logo.png
-logoLarge: /img/logo.png
-faviconSmall: /img/favicon-16x16.png
-faviconLarge: /img/favicon-32x32.png
+title: Best Digi Tech
+logoSmall: /img/website-logo.png
+logoLarge: /img/website-logo.png
+faviconSmall: /img/fav-icon-16x16.png
+faviconLarge: /img/fav-icon-32x32.png
 facebook: https://www.facebook.com/gamingtechiesofficial
 youtube: https://www.youtube.com/channel/UCV1YUero4LNDkktpq6ScEjw
 twitter: https://www.twitter.com/toolgears
