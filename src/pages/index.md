@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
-seoTitle: Gaming Techies | Best Techs Reviewed
-seoDescription: Gaming Techies is a professional online website that keeps you
-  updated with all the gaming techs reviews, news and latest information.
+seoTitle: Best Digi Tech | Top 10 List with Reviews
+seoDescription: Best Digital Techs reviewed with Top 10 list, Table, Pros and
+  Cons and sometimes FAQ's.
 categories: []
 ---
