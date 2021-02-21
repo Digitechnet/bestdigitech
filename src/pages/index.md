@@ -1,7 +1,6 @@
 ---
 templateKey: index-page
-seoTitle: Index Title
+seoTitle: Best Digi Tech | Top 10 List and Reviews
 seoDescription: Index Description
-categories:
-  - title: Buying Guides
+categories: []
 ---
