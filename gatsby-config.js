@@ -1,11 +1,10 @@
 const path = require("path");
-const siteURL = "https://gamingtechies.com";
-const disqus = "gaming-techies";
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    siteURL: siteURL,
-    siteUrl: siteURL,
+    siteURL: process.env.URL,
+    siteUrl: process.env.URL,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -29,12 +28,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/posts`,
         name: "posts",
-      },
-    },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `gaming-techies`,
       },
     },
     "gatsby-plugin-sharp",
@@ -76,26 +69,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        mediaTypes: [`text/markdown`, `text/x-markdown`],
+        gatsbyRemarkPlugins: [{ resolve: `gatsby-remark-auto-headers`, options: { icon: false, elements: [`h2`, `h3`, `h4`] } }],
       },
     },
     {
       resolve: "gatsby-plugin-mdx-frontmatter",
     },
     "gatsby-plugin-slug",
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        customizeWebpackConfig: (config) => ((config.node.fs = "empty"), (config.node.child_process = "empty")),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: siteURL,
-      },
-    },
     `gatsby-plugin-remove-fingerprints`,
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -104,7 +84,14 @@ module.exports = {
       },
     },
     "gatsby-plugin-robots-txt",
-    "gatsby-plugin-netlify",
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        manualInit: true,
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        customizeWebpackConfig: (config, { plugins }) => ((config.node.fs = "empty"), (config.node.child_process = "empty"), config.plugins.push(plugins.define({ "process.env.MY_BRANCH": JSON.stringify(process.env.BRANCH) }))),
+      },
+    },
     {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {

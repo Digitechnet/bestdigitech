@@ -2,13 +2,15 @@ const _ = require("lodash");
 const path = require("path");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 const sharp = require(`sharp`);
+const gihubSlugger = require("github-slugger");
+const slugger = new gihubSlugger();
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 
   return graphql(`
     {
-      pages: allMarkdownRemark(filter: { frontmatter: { templateKey: { in: ["default-page", "index-page"] } } }) {
+      pages: allMarkdownRemark(filter: { frontmatter: { templateKey: { in: ["default-page", "index-page", "about-page"] } } }) {
         nodes {
           id
           fields {
@@ -59,6 +61,10 @@ exports.createPages = ({ actions, graphql }) => {
           id
           rawBody
           body
+          headings {
+            value
+            depth
+          }
           fields {
             slug
           }
@@ -103,11 +109,10 @@ exports.createPages = ({ actions, graphql }) => {
 
     const allImages = [];
 
-    const CreateID = (name) =>
-      name
-        .replace(/[^\w ]/, "")
-        .split(" ")
-        .join("_");
+    const createID = (name) => {
+      slugger.reset();
+      return slugger.slug(name);
+    };
 
     const createImages = async (match, type, options, mobile = false) => {
       const name = match.split("/").filter(Boolean).pop();
@@ -126,7 +131,7 @@ exports.createPages = ({ actions, graphql }) => {
         const id = category.id;
         const categoryID = category.frontmatter.id;
         const slug = category.fields.slug;
-        const categoryCount = categoriesCount.filter((categoryCount) => categoryCount.category === categoryID)[0];
+        const categoryCount = categoriesCount.find((categoryCount) => categoryCount.category === categoryID);
         const totalPosts = categoryCount && categoryCount.totalCount;
         const postsPerPage = 6;
         const numPages = totalPosts ? Math.ceil(totalPosts / postsPerPage) : 1;
@@ -156,7 +161,7 @@ exports.createPages = ({ actions, graphql }) => {
         const id = author.id;
         const authorID = author.frontmatter.id;
         const slug = `/author${author.fields.slug}`;
-        const authorCount = authorsCount.filter((authorCount) => authorCount.author === authorID)[0];
+        const authorCount = authorsCount.find((authorCount) => authorCount.author === authorID);
         const totalPosts = authorCount && authorCount.totalCount;
         const postsPerPage = 6;
         const numPages = totalPosts ? Math.ceil(totalPosts / postsPerPage) : 1;
@@ -189,7 +194,7 @@ exports.createPages = ({ actions, graphql }) => {
 
         createPage({
           path: slug == "/index" ? "/" : `${slug}/`,
-          component: path.resolve(`src/templates/${tempKey}.js`),
+          component: path.resolve(`src/templates/${tempKey === "about-page" ? "default-page" : tempKey}.js`),
           // additional data can be passed via context
           context: {
             id,
@@ -242,15 +247,14 @@ exports.createPages = ({ actions, graphql }) => {
         }
 
         let m;
-        let str = post.rawBody;
-        str = str.split("\\").join("");
-        str1 = post.frontmatter.beforebody + post.body;
-        str2 = post.frontmatter.afterbody;
+        let str1 = post.body;
+        let str2 = post.frontmatter.afterbody;
 
         const tocData = [];
         const tocRex1 = /(mdx\(PTitle, ({[^}]*}))/g;
         const tocRex2 = /(title: "([^"]*)")/g;
         const tocRex3 = /(hlevel: "([^"]*)")/g;
+
         while ((m = tocRex1.exec(str1))) {
           let title;
           let heading;
@@ -264,7 +268,7 @@ exports.createPages = ({ actions, graphql }) => {
           tocData.push({
             title,
             heading: heading || "2",
-            id: title && CreateID(title),
+            id: title && createID(title),
           });
         }
 
@@ -273,7 +277,7 @@ exports.createPages = ({ actions, graphql }) => {
             tocData.push({
               title: item.name,
               heading: "3",
-              id: CreateID(item.name),
+              id: createID(item.name),
             });
           });
         }
@@ -291,7 +295,7 @@ exports.createPages = ({ actions, graphql }) => {
           tocData.push({
             title,
             heading: heading || "2",
-            id: title && CreateID(title),
+            id: title && createID(title),
           });
         }
 
@@ -319,9 +323,15 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   createTypes(`
   type Mdx implements Node {
     frontmatter: MdxFrontmatter
+    fields: MdxFields
+  }
+
+  type MdxFields {
+    slug: String
   }
 
   type MdxFrontmatter @infer {
+    templateKey: String
     featuredimage: File @fileByRelativePath
     beforebody: String @mdx
     afterbody: String @mdx
@@ -332,6 +342,17 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     title: String
     btnText: String
     hidefeaturedimage: Boolean
+    author: String
+    category: String
+    slug: String
+    seoDescription: String
+    seoTitle: String
+    date(formatString: String, fromNow: Boolean): Date @dateformat
+    moddate(formatString: String, fromNow: Boolean): Date @dateformat
+    tableofcontent: Boolean
+    rating: Boolean
+    rcount: Int
+    rvalue: Int
   }
 
   type Product @infer {
@@ -372,6 +393,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   type ProductTable {
     table: Boolean
     title: String
+    headTitle: String
     seoTitle: String
     productColumns: [String]
   }
@@ -388,8 +410,14 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     description: String
     seoTitle: String
     seoDescription: String
+    image: File @fileByRelativePath
     schema: String
     cookies: Cookies
+    disqus: String
+    facebook: String
+    twitter: String
+    youtube: String
+    number: String
     topNav: [Nav]
     colors: Colors
     ads: Ads
@@ -398,6 +426,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     logoLarge: File! @fileByRelativePath
     faviconSmall: File! @fileByRelativePath
     faviconLarge: File! @fileByRelativePath
+    linkType: Boolean
   }
 
   type HomeCategory {

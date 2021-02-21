@@ -1,37 +1,60 @@
 ---
 templateKey: site-data
-title: Best Digi Tech
-logoSmall: /img/website-logo.png
-logoLarge: /img/website-logo.png
-faviconSmall: /img/fav-icon-16x16.png
-faviconLarge: /img/fav-icon-32x32.png
-facebook: https://www.facebook.com/
-youtube: https://www.youtube.com/
-twitter: https://www.twitter.com/
-number: +
+title: Gaming Dairy
+logoSmall: /img/logo.png
+logoLarge: /img/logo-large.png
+faviconSmall: /img/favicon-16x16.jpg
+faviconLarge: /img/favicon-32x32.jpg
+disqus: protechreviewer-com
+facebook: ""
+youtube: https://www.youtube.com/sitetitle
+twitter: https://www.twitter.com/sitetitle
+number: ""
 dmca: true
-dmcaLink: https://www.dmca.com/Protection/Status.aspx?ID=6d9af720-078e-4fca-8e1d-824a52124ec5&refurl=https://www.gamingtechies.com/&PAGE_ID=aHR0cHM6Ly93d3cuZ2FtaW5ndGVjaGllcy5jb20v0
+dmcaLink: https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=a402cd6b-f9a0-4bd6-9221-3880bf2baff4
 cookies:
   enabled: true
-  message: To ensure the best experience on our website, we recommend that you
-    allow cookies, as described in our Privacy Policy.
+  message: This website uses cookies to enhance the user experience.
 colors:
-  btnColor: "#fff"
-  headerTextColor: "#fff"
-  btnBackground: "#4f3c8b"
-  background: "#f7f7f7"
-  btnHoverBackground: "#6c51bf"
+  btnColor: "#ffffff"
+  headerTextColor: "#ffffff"
+  btnBackground: "#5899fd"
+  background: "#222831"
+  btnHoverBackground: "#91bbff"
   navbarShadow: "#828282"
-  textColor: "#000"
-  blockBackground: "#fff"
-  headerBackground: "#4f3c8b"
+  textColor: "#ffffff"
+  blockBackground: "#3c4758"
+  headerBackground: "#71757a"
 topNav:
-  - title: Buying Guides
-    link: /buying-guides/
-    child: []
   - title: Learning Guides
     link: /learning-guides/
-    child: []
+    child:
+      - title: Miscellaneous
+        link: "#"
+        child:
+          - title: Test Post
+            link: /sample-post-buying/
+          - title: Test Post
+            link: /sample-post-buying/
+      - title: Peripherals
+        link: "#"
+        child:
+          - title: Test Post
+            link: /sample-post-buying/
+          - title: Test Post
+            link: /sample-post-buying/
+  - title: Buying Guides
+    link: /buying-guides/
+    child:
+      - title: Sample Post News
+        link: /sample-post-buying/
+        child: []
+      - title: Sample Post
+        link: /sample-post-buying/
+  - title: News
+    link: /news/
+  - title: Reviews
+    link: /reviews/
 footerNav:
   - title: About Us
     link: /about-us/
