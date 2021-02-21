@@ -5,12 +5,14 @@ logoSmall: /img/website-logo.png
 logoLarge: /img/website-logo.png
 faviconSmall: /img/fav-icon-16x16.png
 faviconLarge: /img/fav-icon-32x32.png
+disqus: ""
 facebook: https://www.facebook.com/
 youtube: https://www.youtube.com/
 twitter: https://www.twitter.com/
 number: +
 dmca: true
 dmcaLink: https://bestdigitech.com
+linkType: false
 cookies:
   enabled: true
   message: To ensure the best experience on our website, we recommend that you
