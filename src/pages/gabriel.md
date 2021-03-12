@@ -2,7 +2,7 @@
 id: cc4c4f8c-0313-4364-98d1-0ae2921c57ac
 templateKey: author-page
 title: Gabriel
-slug: /gabriel/
+slug: gabriel
 image: /img/gabriel.jpg
 description: Meet Gabriel, He was in love with technology from a very early age,
   at the age of 10 he started working hard on this field and selected electrical
